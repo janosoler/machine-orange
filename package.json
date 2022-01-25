@@ -1,0 +1,34 @@
+{
+  "name": "machineorange",
+  "version": "1.0.0",
+  "description": "web App for detection and classification of diseases in oranges",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MachineOrange/app-web.git"
+  },
+  "keywords": [
+    "machineLearning",
+    "ai",
+    "citrus",
+    "orange",
+    "saturdays.AI"
+  ],
+  "author": "machineOrange Team",
+  "license": "CC-BY-NC-4.0",
+  "bugs": {
+    "url": "https://github.com/MachineOrange/app-web/issues"
+  },
+  "homepage": "https://github.com/MachineOrange/app-web#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "express-handlebars": "^6.0.2",
+    "formidable": "^2.0.1",
+    "handlebars": "^4.7.7",
+    "nodemon": "^2.0.15"
+  }
+}
