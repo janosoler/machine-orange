@@ -1,11 +1,18 @@
 const path = require("path");
-const fs = require('fs');
-const formidable = require('formidable');
 
 
 exports.getLandingPage = (req, res)=>{
     res.sendFile(path.join(__dirname, "public", "index.html"));
 }
+
+/*exports.getResults = (req, res)=>{
+  console.log(req.body);
+ 
+  res.send("hola");
+  //res.render("resultsReport", {"img64": base64ImgClassified, )
+
+  
+}*/
 
 
 
