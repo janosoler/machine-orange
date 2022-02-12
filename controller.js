@@ -1,20 +1,26 @@
-const path = require("path");
+import path from "path";
+import fetch from 'node-fetch';
 
-
-exports.getLandingPage = (req, res)=>{
+const getLandingPage = (req, res)=>{
     res.sendFile(path.join(__dirname, "public", "index.html"));
 }
 
-/*exports.getResults = (req, res)=>{
-  console.log(req.body);
- 
-  res.send("hola");
-  //res.render("resultsReport", {"img64": base64ImgClassified, )
-
+const sendDataToGoogleAPIForClassify = async (req, res)=>{
   
-}*/
-
-
+  const requestBodyToAPI = {"images": [JSON.parse(req.body.base64)]};
+  const responseFromGoogleCloud = await fetch("https://api-be3kih2vua-ew.a.run.app", {
+        method: 'POST', 
+        mode: 'cors',
+        headers: {"Content-Type": "application/json"},
+        cache: 'no-cache', 
+        credentials: 'same-origin', 
+        redirect: 'follow', 
+        referrerPolicy: 'no-referrer', 
+        body: JSON.stringify(requestBodyToAPI)
+    });
+    const responseFromGoogleCloudJSON = await responseFromGoogleCloud.json();
+    res.render('resultsReport',{data:responseFromGoogleCloudJSON.response[0]});
+}
 
 
 /*.fileSavingAndConvertBase64 = (req, res)=>{
@@ -33,7 +39,4 @@ exports.getLandingPage = (req, res)=>{
     });
 }*/
 
-exports.attends404 = () => {
- res.send("<p>Resource not found</p>")
-}
-
+export {getLandingPage, sendDataToGoogleAPIForClassify}

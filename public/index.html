@@ -8,14 +8,14 @@
 </head>
 <body>
     <h1>Welcome to MachineOrange App</h1>
-    <form id="orangeImageForm" action="#" method="POST" enctype="multipart/form-data">
-        <p><label for="imageDumper">Introduce tus imágenes en jpeg: </label></p>
-        <p><input id="imageDumper" type="file" name="imageDumper"></p>
+    <p><label for="imageDumper">Introduce tus imágenes en jpeg: </label></p>
+    <p><input id="imageDumper" type="file" name="imageDumper" accept="image/*" capture></p>
+    <form id="orangeImageForm" action="/classificator" method="POST">
+       
         <p><input type="submit" id="submitButton"></p>
         <p><input type="hidden" id="hiddenBase64" name="base64"></p>
     </form>
     <canvas width="300" height="300" id="mycanvas"></canvas>
     <script src="./src/convertInputImageToBase64.js"></script>
-    <script src="./src/sendImgB64ToAPI.js"></script>
 </body>
 </html>

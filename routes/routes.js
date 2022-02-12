@@ -1,12 +1,11 @@
-const express = require("express");
-const controller = require("../controller");
-//import upload from '../public/src/multerConfig.js';
+import express from "express";
+import {getLandingPage, sendDataToGoogleAPIForClassify} from "../controller.js";
 
 const router = express.Router();
 
-router.get("/", controller.getLandingPage);
+router.get("/", getLandingPage);
 
-//router.post("/classification-result", controller.getResults);
+router.post("/classificator", sendDataToGoogleAPIForClassify);
 
 
-module.exports = router;
+export {router};
